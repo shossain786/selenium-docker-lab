@@ -15,7 +15,7 @@ public class BaseTest {
 
     @BeforeEach
     public void setUp() throws MalformedURLException {
-        isRemote  = System.getProperty("os.name").toLowerCase().startsWith("linux");
+        isRemote  = System.getProperty("os.name").toLowerCase().contains("linux");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized");
         options.addArguments("--disable-gpu");
