@@ -9,7 +9,7 @@ public class SampleTest extends BaseTest{
     }
 
     @Test
-    public void testGoogleSource() {
+    public void testPageSource() {
         System.out.println(driver.getCurrentUrl());
         Assertions.assertTrue(driver.getCurrentUrl().equals("https://panjatan.netlify.app/"));
     }
