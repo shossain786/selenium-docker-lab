@@ -22,6 +22,8 @@ public class BaseTest {
         options.addArguments("--start-maximized");
         options.addArguments("--disable-gpu");
 
+        System.out.println("Remote Mode: " + isRemote);
+
         if (isRemote) {
             try {
                 driver = new RemoteWebDriver(new URL(remoteUrl + "/wd/hub"), options);
