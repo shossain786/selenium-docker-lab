@@ -11,13 +11,12 @@ import java.net.URL;
 public class BaseTest {
     WebDriver driver;
     String appUrl = "https://panjatan.netlify.app/";
-    boolean isRemote = false;
     String remoteUrl = "http://localhost:4444";
 
     @BeforeEach
     public void setUp() throws MalformedURLException {
         remoteUrl = System.getProperty("remoteUrl", "http://localhost:4444");
-        isRemote  = System.getProperty("os.name").toLowerCase().contains("linux");
+        boolean isRemote = Boolean.getBoolean("remote");
         System.out.println("OS: " + System.getProperty("os.name") + ", isRemote: " + isRemote + ", remoteUrl: " + remoteUrl);
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized");
