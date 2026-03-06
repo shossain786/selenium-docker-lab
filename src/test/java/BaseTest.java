@@ -25,7 +25,7 @@ public class BaseTest {
 
         if (isRemote) {
             try {
-                driver = new RemoteWebDriver(new URL(remoteUrl), options);
+                driver = new RemoteWebDriver(new URL(remoteUrl + "/wd/hub"), options);
             } catch (Exception e) {
                 System.out.println("Remote WebDriver failed, falling back to local ChromeDriver: " + e.getMessage());
                 driver = new ChromeDriver(options);
