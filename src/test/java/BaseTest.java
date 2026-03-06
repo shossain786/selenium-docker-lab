@@ -8,7 +8,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class BaseTest {
+public abstract class BaseTest {
     WebDriver driver;
     String appUrl = "https://panjatan.netlify.app/";
     String remoteUrl = "http://localhost:4444";
