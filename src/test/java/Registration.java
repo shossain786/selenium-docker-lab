@@ -37,6 +37,7 @@ public class Registration  extends BaseTest{
         String actualMsg = alert.getText();
         alert.accept();
 
+        System.out.println("Text fetched from alert: " + actualMsg);
         Assert.assertEquals(actualMsg, "Registration form submitted successfully!");
     }
 }
