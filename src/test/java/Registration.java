@@ -41,11 +41,16 @@ public class Registration  extends BaseTest{
         Assert.assertEquals(actualMsg, "Registration form submitted successfully!");
     }
 
-    @Test
+    @Test(description = "Test to verify the text that takes sometime to appear")
     public void dynamicLoadingTest() {
         getDriver().findElement(By.xpath("//button[@id='loadContentBtn']")).click();
-        String text = getDriver().findElement(By.xpath("//div[@id='dynamicContent']")).getText();
+
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
+        WebElement dynamicContent = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='dynamicContent']")));
+
+        String text = dynamicContent.getText();
         System.out.println("Text fetched from text: " + text);
+
         Assert.assertTrue(text.contains("This content was loaded dynamically!"));
     }
 }
