@@ -7,6 +7,7 @@ import org.testng.annotations.BeforeMethod;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.time.Duration;
 
 public abstract class BaseTest {
     private static final ThreadLocal<WebDriver> driverThread = new ThreadLocal<>();
@@ -35,6 +36,7 @@ public abstract class BaseTest {
         } else {
             driver = new ChromeDriver(options);
         }
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driverThread.set(driver);
         driver.get(appUrl);
     }

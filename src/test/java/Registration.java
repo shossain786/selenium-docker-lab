@@ -40,4 +40,12 @@ public class Registration  extends BaseTest{
         System.out.println("Text fetched from alert: " + actualMsg);
         Assert.assertEquals(actualMsg, "Registration form submitted successfully!");
     }
+
+    @Test
+    public void dynamicLoadingTest() {
+        getDriver().findElement(By.xpath("//button[@id='loadContentBtn']")).click();
+        String text = getDriver().findElement(By.xpath("//div[@id='dynamicContent']")).getText();
+        System.out.println("Text fetched from text: " + text);
+        Assert.assertTrue(text.contains("This content was loaded dynamically!"));
+    }
 }
