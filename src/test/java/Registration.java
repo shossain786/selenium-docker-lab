@@ -10,8 +10,8 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 
 public class Registration  extends BaseTest{
-    @Test
-    public void RegistrationTest() {
+    @Test(description = "Positive Test to validate User Registration Works.")
+    public void registrationTest() {
         driver.findElement(By.cssSelector("#firstName")).sendKeys("Saddam");
         driver.findElement(By.cssSelector("#email")).sendKeys("saddam@pramana.com");
 
