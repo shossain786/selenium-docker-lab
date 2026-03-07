@@ -9,8 +9,12 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public abstract class BaseTest {
-    WebDriver driver;
+    private static final ThreadLocal<WebDriver> driverThread = new ThreadLocal<>();
     String appUrl = "https://panjatan.netlify.app/";
+
+    protected WebDriver getDriver() {
+        return driverThread.get();
+    }
 
     @BeforeMethod
     public void setUp() throws MalformedURLException {
@@ -20,21 +24,27 @@ public abstract class BaseTest {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized");
         options.addArguments("--disable-gpu");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
 
         System.out.println("Remote Mode: " + isRemote);
 
+        WebDriver driver;
         if (isRemote) {
             driver = new RemoteWebDriver(new URL(remoteUrl + "/wd/hub"), options);
         } else {
             driver = new ChromeDriver(options);
         }
+        driverThread.set(driver);
         driver.get(appUrl);
     }
 
     @AfterMethod
     public void tearDown() {
+        WebDriver driver = driverThread.get();
         if (driver != null) {
             driver.quit();
+            driverThread.remove();
         }
     }
 }

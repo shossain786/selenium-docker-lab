@@ -3,6 +3,7 @@
     <test name="Sample Tests">
         <classes>
             <class name="SampleTest"/>
+            <class name="Registration"></class>
         </classes>
     </test>
 </suite>

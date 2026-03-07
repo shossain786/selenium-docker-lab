@@ -5,13 +5,13 @@ public class SampleTest extends BaseTest {
 
     @Test
     public void testPageTitle() {
-        System.out.println(driver.getTitle());
-        Assert.assertEquals(driver.getTitle(), "Complete Selenium Practice Hub");
+        System.out.println(getDriver().getTitle());
+        Assert.assertEquals(getDriver().getTitle(), "Complete Selenium Practice Hub");
     }
 
     @Test
     public void testPageSource() {
-        System.out.println(driver.getCurrentUrl());
-        Assert.assertEquals(driver.getCurrentUrl(), "https://panjatan.netlify.app/");
+        System.out.println(getDriver().getCurrentUrl());
+        Assert.assertEquals(getDriver().getCurrentUrl(), "https://panjatan.netlify.app/");
     }
 }
