@@ -1,16 +1,17 @@
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
-public class SampleTest extends BaseTest{
+public class SampleTest extends BaseTest {
+
     @Test
     public void testPageTitle() {
         System.out.println(driver.getTitle());
-        Assertions.assertEquals("Complete Selenium Practice Hub", driver.getTitle());
+        Assert.assertEquals(driver.getTitle(), "Complete Selenium Practice Hub");
     }
 
     @Test
     public void testPageSource() {
         System.out.println(driver.getCurrentUrl());
-        Assertions.assertTrue(driver.getCurrentUrl().equals("https://panjatan.netlify.app/"));
+        Assert.assertEquals(driver.getCurrentUrl(), "https://panjatan.netlify.app/");
     }
 }
