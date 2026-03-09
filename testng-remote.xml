@@ -1,9 +1,21 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Selenium Docker Suite" parallel="methods" thread-count="3">
-    <test name="Sample Tests">
+
+<suite name="Selenium Docker Suite" parallel="tests" thread-count="2">
+
+    <test name="Sample Tests On Chrome">
+        <parameter name="browser" value="chrome"/>
         <classes>
             <class name="SampleTest"/>
-            <class name="Registration"></class>
+            <class name="Registration"/>
         </classes>
     </test>
+
+    <test name="Remote Tests On Firefox">
+        <parameter name="browser" value="firefox"/>
+        <classes>
+            <class name="SampleTest"/>
+            <class name="Registration"/>
+        </classes>
+    </test>
+
 </suite>
