@@ -44,6 +44,7 @@ public abstract class BaseTest {
         } else {
             System.out.println("Chrome Browser");
             ChromeOptions options = new ChromeOptions();
+            options.addArguments("--headless=new");
             options.addArguments("--start-maximized");
             options.addArguments("--disable-gpu");
             options.addArguments("--no-sandbox");
